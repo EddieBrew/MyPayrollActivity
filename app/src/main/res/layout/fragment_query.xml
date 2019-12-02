@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/fragmentQuery"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_margin="10dp"
+	android:background="@drawable/money2"
+	tools:context="myFragments.QueryFragment">
+
+
+	<Button
+		android:id="@+id/btnBDate"
+		android:layout_width="150dp"
+		android:layout_height="wrap_content"
+		android:layout_alignParentStart="true"
+		android:layout_alignParentTop="true"
+		android:layout_marginStart="17dp"
+		android:layout_marginTop="5dp"
+		android:contentDescription="TODO"
+		android:editable="false"
+		android:focusableInTouchMode="false"
+		android:text="Starting Date"
+		app:layout_constraintEnd_toStartOf="@+id/editTextBDate"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+
+	<EditText
+		android:id="@+id/editTextBDate"
+		android:layout_width="140dp"
+		android:layout_height="45dp"
+		android:layout_alignBottom="@+id/btnBDate"
+		android:layout_alignParentEnd="true"
+		android:layout_marginEnd="28dp"
+		android:contentDescription="TODO"
+		android:ems="10"
+		android:enabled="false"
+		android:hint="Starting Date "
+		android:inputType="date"
+		android:selectAllOnFocus="true"
+		android:textAlignment="viewStart"
+		android:textAppearance="@style/TextAppearance.AppCompat.Title"
+		android:textColor="@android:color/black"
+		android:textSize="19sp"
+		android:textStyle="bold"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+
+	<Button
+		android:id="@+id/btnEDate"
+		android:layout_width="150dp"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/btnBDate"
+		android:layout_alignStart="@+id/btnBDate"
+		android:layout_marginTop="5dp"
+		android:contentDescription="TODO"
+		android:focusableInTouchMode="false"
+		android:text="Ending Date"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintStart_toStartOf="@+id/btnBDate"
+		app:layout_constraintTop_toBottomOf="@+id/btnBDate" />
+
+	<EditText
+		android:id="@+id/editTextEDate"
+		android:layout_width="140dp"
+		android:layout_height="45dp"
+		android:layout_alignStart="@+id/editTextBDate"
+		android:layout_alignTop="@+id/btnEDate"
+		android:contentDescription="TODO"
+		android:cursorVisible="true"
+		android:ems="5"
+		android:enabled="false"
+		android:hint="Ending  Date"
+		android:inputType="date"
+		android:selectAllOnFocus="true"
+		android:textAlignment="viewStart"
+		android:textAppearance="@style/TextAppearance.AppCompat.Title"
+		android:textColor="@android:color/black"
+		android:textSize="19sp"
+		android:textStyle="bold"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintStart_toStartOf="@+id/editTextBDate"
+		tools:layout_editor_absoluteY="111dp" />
+
+
+	<Button
+		android:id="@+id/btnDisplayPayPeriod"
+		android:layout_width="150dp"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/btnEDate"
+		android:layout_alignStart="@+id/btnEDate"
+		android:layout_marginTop="5dp"
+		android:layout_marginEnd="0dp"
+		android:contentDescription="TODO"
+		android:enabled="true"
+		android:focusableInTouchMode="false"
+		android:text="Display Hours"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintStart_toStartOf="@+id/btnEDate"
+		app:layout_constraintTop_toBottomOf="@+id/btnEDate"
+		tools:layout_editor_absoluteY="332dp" />
+
+
+	<CheckBox
+		android:id="@+id/chxBoxError"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/btnEDate"
+		android:layout_alignStart="@+id/editTextBDate"
+		android:layout_centerHorizontal="@+id/btnDisplayPayPeriod"
+		android:layout_marginTop="12dp"
+		android:checked="false"
+		android:text="Error Check"
+		android:textSize="20sp"
+		android:textStyle="bold"
+		android:visibility="invisible" />
+
+
+	<TextView
+		android:id="@+id/editTextPayrollMessage"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/btnDisplayPayPeriod"
+		android:layout_centerHorizontal="true"
+		android:layout_marginLeft="5dp"
+		android:layout_marginTop="5dp"
+		android:layout_marginRight="5dp"
+		android:layout_marginBottom="5dp"
+		android:background="@color/Transparent"
+		android:contentDescription="TODO"
+		android:contextClickable="false"
+		android:ems="5"
+		android:enabled="true"
+		android:longClickable="false"
+		android:paddingStart="5dp"
+		android:paddingLeft="5dp"
+		android:paddingEnd="5dp"
+		android:paddingRight="5dp"
+		android:text="Message"
+		android:textAlignment="viewStart"
+		android:textColor="@android:color/holo_red_dark"
+		android:textSize="14sp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/btnDisplayPayPeriod"
+		tools:layout_editor_absoluteX="171dp" />
+
+
+</RelativeLayout>

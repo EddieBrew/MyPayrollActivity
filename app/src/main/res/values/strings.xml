@@ -1,0 +1,85 @@
+<resources>
+
+	<!--   Shared Preference strings-->
+	<string name="chkbox"> com.example.mypayrollactivity.chkbox </string>
+	<string name="name"> com.example.mypayrollactivity.name </string>
+	<string name="pWord"> com.example.mypayrollactivity.pword </string>
+
+	<string name="app_name">MyPayrollActivity</string>
+	<string name="tab_dataEntry">Data Entry</string>
+	<string name="tab_query">Query Hours</string>
+	<string name="tab_queryFields">Query Fields</string>
+	<string name="tab_axess">Axess</string>
+
+	<!-- TODO: Remove or change this placeholder text -->
+
+	<string name="home">Home</string>
+	<string name="payroll_hours_query">Payroll Hours Query</string>
+	<string name="delete_database">Delete Database</string>
+	<string name="update_local_database">Update Local Database</string>
+	<string name="logout">Logout</string>
+	<string name="field_prompt">Choose a field item</string>
+	<string name="login_title">BREWER SEP DAILY HOURS </string>
+	<string name="spinnerTextSize">20sp</string>
+
+
+	<string-array name="queryfields_array">
+		<item>Day</item>
+		<item>Event Number</item>
+		<item>Event Name</item>
+	</string-array>
+
+	<string-array name="eventnumbers_array">
+		<item>12029</item>
+		<item>12032</item>
+		<item>12036</item>
+	</string-array>
+
+	<string-array name="eventdays_array">
+		<item>MON</item>
+		<item>TUE</item>
+		<item>WED</item>
+		<item>THU</item>
+		<item>FRI</item>
+		<item>SAT</item>
+		<item>SUN</item>
+	</string-array>
+
+
+	<string-array name="eventnames_array">
+		<item>Bing</item>
+		<item>Football</item>
+		<item>Foothill</item>
+		<item>Frost</item>
+		<item>MemorialChurch</item>
+		<item>MenBB</item>
+		<item>PowWow</item>
+		<item>SEPAnnualTraining</item>
+		<item>TourBus</item>
+		<item>TreeHack</item>
+		<item>Sick</item>
+		<item>CallOff</item>
+		<item>VadenPharmacy</item>
+		<item>WomenVolleyBall</item>
+		<item>WBSecurity</item>
+		<item>WomenBB</item>
+
+	</string-array>
+	<!-- TODO: Remove or change this placeholder text -->
+	<string name="hello_blank_fragment">Hello blank fragment1</string>
+	<string name="hello_blank_fragment2">Hello blank fragment2</string>
+	<string name="login">LOGIN</string>
+	<string name="orSignup">or, Sign Up</string>
+	<string name="remString">Remember my login information</string>
+	<string name="upload_database_to_server">Upload Database to Server</string>
+	<string name="stanford_access">Stanford Access</string>
+	<string name="axess_website">Stanford Axess</string>
+	<string name="lunch_break">Lunch (Hour Break)</string>
+	<string name="no_lunch">No Lunch</string>
+	<string name="compute_hours">COMPUTE WORKED HOURS</string>
+	<string name="end_time">ENTER END TIME</string>
+	<string name="start_time">ENTER START TIME</string>
+	<string name="date">ENTER DATE</string>
+	<string name="event_name">Enter Event Name</string>
+	<string name="event_number">Enter Event Number</string>
+</resources>

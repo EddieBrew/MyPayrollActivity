@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/custom_listView"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="4dp">
+
+	<ImageView
+		android:id="@+id/imageView"
+		android:layout_width="120dp"
+		android:layout_height="120dp"
+		android:layout_alignTop="@+id/textViewEventNumber"
+		android:layout_alignParentStart="true"
+		android:layout_centerVertical="true"
+		android:padding="5dp"
+		android:src="@drawable/monday" />
+
+
+	<TextView
+		android:id="@+id/textViewDate"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/imageView"
+		android:padding="2dp"
+		android:text="Date"
+		android:textColor="@android:color/holo_red_dark"
+		android:textSize="20sp"
+		android:textStyle="bold" />
+
+	<TextView
+		android:id="@+id/textViewEventNumber"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/textViewDate"
+		android:layout_toRightOf="@id/imageView"
+		android:padding="2dp"
+		android:text="Event Name"
+		android:textColor="@android:color/holo_red_dark"
+		android:textSize="14sp"
+		android:textStyle="bold" />
+
+	<TextView
+		android:id="@+id/textViewEventName"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/textViewEventNumber"
+		android:layout_toRightOf="@id/imageView"
+		android:padding="2dp"
+		android:text="Event Number"
+		android:textColor="@android:color/holo_red_dark"
+		android:textSize="14sp"
+		android:textStyle="bold" />
+
+	<TextView
+		android:id="@+id/textViewTime"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/textViewEventName"
+		android:layout_toRightOf="@id/imageView"
+		android:padding="2dp"
+		android:text="Time"
+		android:textColor="@android:color/holo_red_dark"
+		android:textSize="14sp"
+		android:textStyle="bold" />
+
+	<TextView
+		android:id="@+id/textViewrHours"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/textViewTime"
+		android:layout_toRightOf="@id/imageView"
+		android:padding="2dp"
+		android:text="Reg Hours"
+		android:textColor="@android:color/holo_red_dark"
+		android:textSize="14sp"
+		android:textStyle="bold" />
+
+	<TextView
+		android:id="@+id/textViewoHours"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/textViewrHours"
+		android:layout_toRightOf="@id/imageView"
+		android:padding="2dp"
+		android:text="OT Hours"
+		android:textColor="@android:color/holo_red_dark"
+		android:textSize="14sp"
+		android:textStyle="bold" />
+
+
+</RelativeLayout>

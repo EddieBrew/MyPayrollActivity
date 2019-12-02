@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id = "@+id/myMenu"
+	tools:context="com.example.mypayrollactivity">
+
+	<item
+		android:id="@+id/menu_deleteDatabase"
+		android:title="@string/delete_database"
+		android:orderInCategory="106"
+		android:enabled="true"
+		android:visible="true"/>
+
+	<item
+		android:id="@+id/menu_UpdateLocalDatabase"
+		android:title="@string/update_local_database"
+		android:orderInCategory="108"
+		android:enabled="true"
+		android:visible="true"/>
+
+	<item
+		android:id="@+id/menu_UploadToServerDatabase"
+		android:title="@string/upload_database_to_server"
+		android:orderInCategory="110"
+		android:enabled="true"
+		android:visible="true"/>
+	<item
+		android:id="@+id/menu_logout"
+		android:title="@string/logout"
+		android:orderInCategory="114"
+		android:enabled="true"
+		android:visible="true"/>
+
+</menu>
