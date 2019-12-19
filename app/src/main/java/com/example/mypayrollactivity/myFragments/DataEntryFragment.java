@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -203,6 +204,7 @@ public class DataEntryFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				try{
+					//playCashRegisterSound();
 					processHoursInfo();
 				}
 				catch(Exception e){
@@ -392,7 +394,7 @@ public class DataEntryFragment extends Fragment {
 		}
 
 
-		String message = "2nd shift enter for day " + workDay + "\n" + "Hours updated to reflect the total hours for that day. ";
+		final String message = "Multiple shifts enter for day " + workDay + "\n" + "Hours updated to reflect the total hours for that day. ";
 
 		//String that will display the input for verification by the user
 		tempString = new StringBuilder();
@@ -444,6 +446,7 @@ public class DataEntryFragment extends Fragment {
 
 						if(MainActivity.isSignOnSuccessful) {
 							placeInDatabaseNServer(workDay, regHours, otHours, dayOfWeek, theNotes);
+							playCashRegisterSound();
 							cumulativeHours = Double.parseDouble(textViewYTD.getText().toString()) + regHours + otHours;
 							textViewYTD.setText(String.format("%.2f", (cumulativeHours)));//main_layout widget
 							txtEventNum.setText(""); //clears edittext boxes
@@ -481,6 +484,21 @@ public class DataEntryFragment extends Fragment {
 				})
 				.show();
 	}
+
+
+	/*********************************************************************************
+	 *  playCashRegisterSound() plays an audio cash register sound when the info
+	 *  entered in the DataEntry tab has been sent to the server
+	 *
+	 * @pre none
+	 * @parameter String  date
+	 * @post DailyInfoModel : all data pertainng to the workers payoll hours for that day.
+	 **********************************************************************************/
+	 private void playCashRegisterSound(){
+		 MediaPlayer mPlayer = MediaPlayer.create(getActivity(), R.raw.cash_register);
+		 mPlayer .start();;
+
+	 }
 
 
 	/*********************************************************************************
