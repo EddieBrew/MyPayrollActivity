@@ -5,7 +5,7 @@ Initial Committ
 The MyPayrollActivity app is an app that keeps tracks of a Stanford SEP workers shift hours by storing the information
 on an AWS Parse Server and a local SQLite database on the mobile device. All data retrieved for query operations are retrieved from 
 the local SQLite database, to limit request from AWS, thus mimizing the cost for the AWS services. A hidden function is available, which 
-allows the uses to download the parse server data to update the local database 
+allows the uses to download the parse server data to update the local database. 
 
 1) Login Activity--Sign on page to access the AWS database using Parse Server. The user will be able to query the local 
                    the SQLitedatabase, while offline
