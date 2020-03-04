@@ -7,8 +7,8 @@ on an AWS Parse Server and a local SQLite database on the mobile device. All dat
 the local SQLite database, to limit request from AWS, thus mimizing the cost for the AWS services. A hidden function is available, which 
 allows the uses to download the parse server data to update the local database 
 
-1) Login Activity--Sign on page to access the AWS database using Parse Server. The user will be able to query the local the   
-    SQLitedatabase, while offline
+1) Login Activity--Sign on page to access the AWS database using Parse Server. The user will be able to query the local 
+                   the SQLitedatabase, while offline
 2) MainActivity---Activity interface where the user's experience interface with 4 tabs using a tabLayout.
                 of several Fragments. The user also have the option os saving his log on information to prevent entring every time 
                 at app startup
