@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -297,8 +298,10 @@ public class DataEntryFragment extends Fragment {
 	 * @post Updates the DataEntryFragment layout textView "Year To Date Hours"
 	 **********************************************************************************/
 	public void  getTotalHours() {
+		final double hoursOffset = 601.0; //total hours for 12/16/2016 - 12/15/2017
+
 		cumulativeHours = 0;
-		cumulativeHours = dbInfo.getTotalRegHours() + dbInfo.getTotalOTHours();
+		cumulativeHours = dbInfo.getTotalRegHours() + dbInfo.getTotalOTHours() + hoursOffset ;
 		textViewYTD.setText(String.format("%.2f", (cumulativeHours)));//main_layout widget
 
 		Log.i("STUFF", String.valueOf(cumulativeHours));
@@ -446,8 +449,38 @@ public class DataEntryFragment extends Fragment {
 
 						if(MainActivity.isSignOnSuccessful) {
 							placeInDatabaseNServer(workDay, regHours, otHours, dayOfWeek, theNotes);
-							playCashRegisterSound();
+							playSound(R.raw.cash_register);
 							cumulativeHours = Double.parseDouble(textViewYTD.getText().toString()) + regHours + otHours;
+
+							if(cumulativeHours >  2985 && cumulativeHours < 3010){
+								//Toast.makeText(getContext(), "Notify SUDPS of Pay Increase to $23/hour", Toast.LENGTH_LONG).show();
+								playSound(R.raw.tollingbell);
+								new CountDownTimer(8000, 1000) {
+
+									public void onTick(long millisUntilFinished) {
+										Toast.makeText(getContext(), "Notify SUDPS of Pay Increase to $23/hour", Toast.LENGTH_LONG).show();
+									}
+
+									public void onFinish() {
+									}
+								}.start();
+							}
+
+							if(cumulativeHours > 3985 && cumulativeHours < 4010){
+								Toast.makeText(getContext(), "Notify SUDPS of Pay Increase to $24/hour", Toast.LENGTH_LONG).show();
+								playSound(R.raw.tollingbell);
+
+								new CountDownTimer(8000, 1000) {
+
+									public void onTick(long millisUntilFinished) {
+										Toast.makeText(getContext(), "Notify SUDPS of Pay Increase to $24/hour", Toast.LENGTH_LONG).show();
+									}
+
+									public void onFinish() {
+									}
+								}.start();
+							}
+
 							textViewYTD.setText(String.format("%.2f", (cumulativeHours)));//main_layout widget
 							txtEventNum.setText(""); //clears edittext boxes
 							txtEventName.setText("");
@@ -487,18 +520,31 @@ public class DataEntryFragment extends Fragment {
 
 
 	/*********************************************************************************
+	 *  playSound() plays an audio sound, while using the app
+	 * @pre none
+	 * @parameter none
+	 * @post none
+	 **********************************************************************************/
+	public void playSound(int sound){
+		MediaPlayer mPlayer = MediaPlayer.create(getContext(), sound);
+		mPlayer .start();;
+
+	}
+
+
+	/*********************************************************************************
 	 *  playCashRegisterSound() plays an audio cash register sound when the info
 	 *  entered in the DataEntry tab has been sent to the server
 	 *
 	 * @pre none
-	 * @parameter String  date
-	 * @post DailyInfoModel : all data pertainng to the workers payoll hours for that day.
+	 * @parameter none
+	 * @post none
 	 **********************************************************************************/
-	 private void playCashRegisterSound(){
-		 MediaPlayer mPlayer = MediaPlayer.create(getActivity(), R.raw.cash_register);
-		 mPlayer .start();;
+	private void playCashRegisterSound(){
+		MediaPlayer mPlayer = MediaPlayer.create(getActivity(), R.raw.cash_register);
+		mPlayer .start();;
 
-	 }
+	}
 
 
 	/*********************************************************************************
@@ -676,6 +722,7 @@ public class DataEntryFragment extends Fragment {
 			public void done(ParseException e) {
 				if( e == null){
 					Toast.makeText(getActivity(), "Data Sent To Server", Toast.LENGTH_SHORT).show();
+
 				}else{
 					Toast.makeText(getActivity(), "ERROR1:" + e.toString(), Toast.LENGTH_SHORT).show();
 					Log.i("ERROR1: ",  e.toString());

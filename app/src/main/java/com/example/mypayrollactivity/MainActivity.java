@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -25,8 +26,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements DataEntryFragment
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-
+		playSound(R.raw.goodmorning);
 		Intent uName = getIntent();
 		username = uName.getStringExtra("username");
 		isSignOnSuccessful = uName.getExtras().getBoolean("onlineStatus");
@@ -224,6 +227,8 @@ public class MainActivity extends AppCompatActivity implements DataEntryFragment
 								startActivity(intent2);
 								Toast.makeText(MainActivity.this, username + " logged out"
 										, Toast.LENGTH_SHORT).show();
+								playSound(R.raw.byebye);
+
 							}
 						})
 						.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
@@ -341,9 +346,43 @@ public class MainActivity extends AppCompatActivity implements DataEntryFragment
 							DailyInfoModel dailyHours = new DailyInfoModel(data);
 							cumHours += dailyHours.getRhours() +dailyHours.getOhours();
 							workerHoursListTemp.add(dailyHours);
-							TextView textViewYTD = findViewById(R.id.textViewYTD);
-							textViewYTD.setText(String.format("%.2f", (cumHours)));
+							//TextView textViewYTD = findViewById(R.id.textViewYTD);
+							//textViewYTD.setText(String.format("%.2f", (cumHours)));
 						} // end (ParseObject object : objects)
+
+						final double hoursOffset = 601.0; //total hours for 12/16/2016 - 12/15/2017
+						cumHours += hoursOffset;
+
+						if(cumHours >  2985 && cumHours < 3010){
+							//Toast.makeText(MainActivity.this, "Notify SUDPS of Pay Increase to $23/hour", Toast.LENGTH_LONG).show();
+							playSound(R.raw.tollingbell);
+							new CountDownTimer(8000, 1000) {
+
+								public void onTick(long millisUntilFinished) {
+									Toast.makeText(MainActivity.this, "Notify SUDPS of Pay Increase to $23/hour", Toast.LENGTH_LONG).show();
+								}
+
+								public void onFinish() {
+								}
+							}.start();
+						}
+
+						if(cumHours > 3985 && cumHours < 4010){
+							//Toast.makeText(MainActivity.this, "Notify SUDPS of Pay Increase to $24/hour", Toast.LENGTH_LONG).show();
+							playSound(R.raw.tollingbell);
+							new CountDownTimer(8000, 1000) {
+
+								public void onTick(long millisUntilFinished) {
+									Toast.makeText(MainActivity.this, "Notify SUDPS of Pay Increase to $24/hour", Toast.LENGTH_LONG).show();
+								}
+
+								public void onFinish() {
+								}
+							}.start();
+						}
+
+						TextView textViewYTD = findViewById(R.id.textViewYTD);
+						textViewYTD.setText(String.format("%.2f", (cumHours)));
 						sortListByAscendingDate(workerHoursListTemp);
 						for (int i = 0; i < workerHoursListTemp.size(); i++) {
 							dbInfo.addNewEntry(MainActivity.this, workerHoursListTemp.get(i));
@@ -544,6 +583,20 @@ public class MainActivity extends AppCompatActivity implements DataEntryFragment
 
 	}
 
+
+	/*********************************************************************************
+	 *  playSound() plays an audio sound, while using the app
+	 * @pre none
+	 * @parameter none
+	 * @post none
+	 **********************************************************************************/
+	 public void playSound(int sound){
+		MediaPlayer mPlayer = MediaPlayer.create(this, sound);
+		mPlayer .start();;
+
+	}
+
+
 	///////////////////////////////////////DataEntry Fragment Interface Methods
 
 	@Override
@@ -686,19 +739,11 @@ public class MainActivity extends AppCompatActivity implements DataEntryFragment
 
 	@Override
 	public void updateLocalDatabase(String date, String eName) {
+
 		dbInfo.deleteEntry(date, eName);
 	}
 
 
-	/*
-	public void displayViewPagerView(List<DailyInfoModel> list) {
-		viewPager = findViewById(R.id.viewpager);
-		SwipeAdapter swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), list);
-		viewPager.setAdapter(swipeAdapter);
-		swipeAdapter.notifyDataSetChanged();
-
-	}
-	*/
 
 
 }

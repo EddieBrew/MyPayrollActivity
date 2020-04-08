@@ -4,11 +4,11 @@ android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.example.mypayrollactivity"
-        minSdkVersion 22
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnit4Runner"
     }
     buildTypes {
         release {
@@ -23,13 +23,30 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'com.parse.bolts:bolts-tasks:1.3.0' //required for Parse functions
-    implementation 'com.parse:parse-android:1.13.0'//required for Parse functions
+
+    // Espresso
+    def androidx_test_espresso = "3.1.0"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$androidx_test_espresso"
+    implementation "androidx.test.espresso:espresso-idling-resource:$androidx_test_espresso"
+
+
+    // androidx.test
+    def androidx_test = "1.1.0"
+    androidTestImplementation "androidx.test:runner:$androidx_test"
+    androidTestImplementation "androidx.test:core:$androidx_test"
+    androidTestImplementation "androidx.test.ext:junit-ktx:$androidx_test"
+
+
+
+    //required for Parse functions
+    implementation 'com.parse.bolts:bolts-tasks:1.4.0'
+    implementation 'com.parse:parse-android:1.13.0'
+
     //recycleview
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
@@ -39,8 +56,11 @@ dependencies {
     //glide
     implementation 'com.github.bumptech.glide:glide:4.4.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
-    implementation 'androidx.gridlayout:gridlayout:1.0.0'
 
+
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation "androidx.preference:preference:1.1.0"
+
+
 
 }

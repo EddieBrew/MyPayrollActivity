@@ -207,7 +207,7 @@
 			android:layout_weight="0.19"
 			android:contentDescription="TODO"
 			android:paddingTop="0dp"
-			android:text="Year To Date Hours = "
+			android:text="Total Hours = "
 			android:textStyle="bold" />
 
 		<TextView
