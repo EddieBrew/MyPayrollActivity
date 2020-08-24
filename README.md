@@ -17,8 +17,8 @@ allows the uses to download the parse server data to update the local database.
                 box will appear, allowing the user to approve or make data changes, before sending the info the the server and 
                 local database.
                 
-      B) Tab 2: Query Hours- Provides daily worker Info within a specified date range. 
-                QueryFragmenyFragment, : Provides the user the ability to get daily work hour information within a specified date range
+      B) Tab 2: Query Hours- Provides daily worker Info within a specified date range.                                                                               
+                QueryFragmenyFragment: Provides the user the ability to get daily work hour information within a specified date range
                 SwipeAdapterFragment: Displays the daily work info using a custom SwipeAdapter class.
                 
       C) Tab3: Query Fields- Allows the user to fetch data, depending the desired paramaters selected from the "Select Field" and
