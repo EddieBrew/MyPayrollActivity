@@ -10,8 +10,8 @@ allows the uses to download the parse server data to update the local database.
 1) Login Activity--Sign on page to access the AWS database using Parse Server. The user will be able to query the local 
                    the SQLitedatabase, while offline
 2) MainActivity---Activity interface where the user's experience interface with 4 tabs using a tabLayout.
-                of several Fragments. The user also have the option os saving his log on information to prevent entering the info every time 
-                at app startup
+                  of several Fragments. The user also have the option os saving his log on information to prevent entering the info every time 
+                  at app startup
       A) Tab 1: DataEntry - Allows the user to input his daily employment info
                 DataEntryFragment Fragment:  User provided inputs containing the SEP workers shift information. A pop-up dialog
                 box will appear, allowing the user to approve or make data changes, before sending the info the the server and 
